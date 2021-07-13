@@ -48,11 +48,12 @@ export default {
     width: 87%;
     height: 5%;
     text-align: center;
-    background-color: #5e92ce;
+    border-bottom: 1px solid #edeff1;
     line-height: 50px;
     position: fixed;
     right: 0px;
     top: 0px;
+    z-index: 1;
   }
 }
 </style>

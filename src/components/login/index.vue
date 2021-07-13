@@ -48,9 +48,8 @@ export default {
   },
   methods: {
     submit (form) {
-      console.log(form)
       if (form.username === 'admin' && form.password === 'admin') {
-        this.$router.push({ path: '/home' })
+        this.$router.push({ path: '/index' })
       } else {
         alert('登陆失败')
       }

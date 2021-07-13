@@ -49,7 +49,6 @@ export default {
   },
   watch: {
     showTabs (val) {
-      debugger
       this.showTabs = val
     }
   },
@@ -62,12 +61,13 @@ export default {
   methods: {
     changePage (item) {
       this.$router.push({ name: item.url })
-      debugger
-      this.tabList.push({
-        name: item.name,
-        url: item.url
-      })
-      this.$store.commit('setTabList', this.tabList)
+      if (this.tabList.filter(x => x.name === item.name).length === 0) {
+        this.tabList.push({
+          name: item.name,
+          url: item.url
+        })
+        this.$store.commit('setTabList', this.tabList)
+      }
       this.$store.commit('setShowTabs', item.url)
     }
   }
