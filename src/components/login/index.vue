@@ -49,7 +49,7 @@ export default {
   methods: {
     submit (form) {
       if (form.username === 'admin' && form.password === 'admin') {
-        this.$router.push({ path: '/index' })
+        this.$router.push({ path: '/index/home' })
       } else {
         alert('登陆失败')
       }

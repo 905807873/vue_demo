@@ -61,6 +61,8 @@ export default {
 }
 .content_page {
   background-color: #ececec;
+  height: 100%;
+  width: 100%;
   .tag-header{
     border-bottom:1px solid #e1e1e1;
     background-color: #ffffff;
