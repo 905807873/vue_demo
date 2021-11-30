@@ -1,44 +1,49 @@
 [
   {
     "name": "首页",
-    "id": 1,
+    "id": "1",
     "icon": "el-icon-picture-outline-round",
     "url": "home",
     "children": []
   },
   {
     "name": "简介",
-    "id": 2,
+    "id": "2",
     "icon": "el-icon-message-solid",
     "url": "introduction",
     "children": []
   },
   {
     "name": "地图相关",
-    "id": 3,
+    "id": "3",
     "icon": "el-icon-s-claim",
     "children": [
       {
-        "id": 31,
-        "parentid": 1,
+        "id": "31",
+        "parentid": "3",
         "name": "Arcgis",
-        "icon": "el-icon-chat-dot-round",
         "url": "Arcgis",
         "children": []
       },
       {
-        "id": 32,
-        "parentid": 1,
+        "id": "32",
+        "parentid": "3",
         "name": "OpenLayers",
-        "icon": "el-icon-shopping-cart-1",
         "url": "OpenLayers",
+        "children": []
+      },
+      {
+        "id": "33",
+        "parentid": "3",
+        "name": "Cesium",
+        "url": "Cesium",
         "children": []
       }
     ]
   },
   {
     "name": "设置",
-    "id": 4,
+    "id": "4",
     "icon": "el-icon-monitor",
     "url": "setting",
     "children": []

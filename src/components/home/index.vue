@@ -1,3 +1,10 @@
+<!--
+ * @Descripttion: project
+ * @Author: licheng
+ * @Date: 2021-11-10 10:24:44
+ * @LastEditors: licheng
+ * @LastEditTime: 2021-11-17 15:07:35
+-->
 <template>
   <div class="home_page">
     <Left class="left"></Left>
@@ -23,7 +30,9 @@ export default {
       }
     }
   },
-  methods: {
+  methods: {},
+  created () {
+    this.$router.push({ name: 'home' })
   }
 }
 </script>

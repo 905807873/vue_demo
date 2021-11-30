@@ -1,14 +1,23 @@
+<!--
+ * @Descripttion: project
+ * @Author: licheng
+ * @Date: 2021-11-10 10:24:44
+ * @LastEditors: licheng
+ * @LastEditTime: 2021-11-19 15:10:02
+-->
 <template>
   <div class="content_page">
     <div class="tag-header">
-      <el-tag v-for="tag in tabList"
-              class="tag"
-              :class="[showTabs === tag.url ? 'el-tag--dark': '']"
-              :key="tag.name"
-              @click="changePage(tag)"
-              @close="closePage(tag)"
-              closable>
-        {{tag.name}}
+      <el-tag
+        v-for="tag in tabList"
+        class="tag"
+        :class="[showTabs === tag.url ? 'el-tag--dark' : '']"
+        :key="tag.name"
+        @click="changePage(tag)"
+        @close="closePage(tag)"
+        closable
+      >
+        {{ tag.name }}
       </el-tag>
     </div>
     <div class="router-view">
@@ -63,8 +72,8 @@ export default {
   background-color: #ececec;
   height: 100%;
   width: 100%;
-  .tag-header{
-    border-bottom:1px solid #e1e1e1;
+  .tag-header {
+    border-bottom: 1px solid #e1e1e1;
     background-color: #ffffff;
   }
   .tag {

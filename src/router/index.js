@@ -1,3 +1,10 @@
+/*
+ * @Descripttion: project
+ * @Author: licheng
+ * @Date: 2021-07-12 16:05:43
+ * @LastEditors: licheng
+ * @LastEditTime: 2021-11-26 10:35:19
+ */
 import Vue from 'vue'
 import Router from 'vue-router'
 import login from '@/components/login/index'
@@ -16,7 +23,7 @@ export default new Router({
       component: login
     },
     {
-      path: '/index',
+      path: '/',
       name: 'index',
       component: index,
       children: [
@@ -33,7 +40,12 @@ export default new Router({
         {
           path: 'Arcgis',
           name: 'Arcgis', // 要跳转的路由名称 不是路径
-          component: () => import('../components/page/Arcgis')
+          component: () => import('../components/page/Arcgis/index.vue')
+        },
+        {
+          path: 'Cesium',
+          name: 'Cesium', // 要跳转的路由名称 不是路径
+          component: () => import('../components/page/Cesium')
         },
         {
           path: 'OpenLayers',

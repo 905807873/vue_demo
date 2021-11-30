@@ -11,12 +11,15 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "axios": "^0.24.0",
+    "babel-eslint": "^10.1.0",
     "echarts": "^5.1.2",
     "element-ui": "^2.15.2",
     "less": "^3.9",
     "less-loader": "^5.0.0",
     "vue": "^2.5.2",
-    "vue-router": "^3.0.1"
+    "vue-router": "^3.0.1",
+    "vuex": "^3.6.2"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
@@ -68,6 +71,9 @@
   "engines": {
     "node": ">= 6.0.0",
     "npm": ">= 3.0.0"
+  },
+  "eslintConfig": {
+    "parser": "babel-eslint"
   },
   "browserslist": [
     "> 1%",

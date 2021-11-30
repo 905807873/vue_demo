@@ -1,6 +1,5 @@
 <template>
   <div class="content">
-    Setting
   </div>
 </template>
 

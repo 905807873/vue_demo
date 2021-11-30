@@ -1,0 +1,66 @@
+.bx-popup-ctn {
+  position: absolute;
+  z-index: 999;
+  background: #fff;
+}
+
+.bx-popup-tip-container {
+  width: 40px;
+  height: 20px;
+  position: absolute;
+  left: 50%;
+  margin-left: -20px;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.bx-popup-tip {
+  width: 17px;
+  background: #fff;
+  height: 17px;
+  padding: 1px;
+  margin: -10px auto 0;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.bx-popup-header-ctn {
+  background: #b9a620;
+  color: #fff;
+  font-size: 15px;
+  padding: 10px;
+  text-align: center;
+}
+
+.bx-popup-content-ctn {
+  padding: 5px;
+}
+
+.leaflet-popup-close-button {
+  position: absolute;
+  right: 10px;
+  cursor: pointer;
+}
+
+.table-popup {
+  border-collapse: collapse;
+  text-align: center;
+}
+
+.table-popup tr {
+  border: 1px solid #cad9ea;
+  color: #666;
+  height: 30px;
+  padding: 5px;
+}
+
+.table-popup .title-popup {
+  width: 100px;
+  background-color: #CCE8EB;
+}
+
+.table-popup .value-popup {
+  width: 120px;
+}
