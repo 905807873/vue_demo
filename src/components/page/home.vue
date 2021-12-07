@@ -1,6 +1,6 @@
 <template>
   <div class="content">
-    <div id="myChart"></div>
+    <div id="myChartLine"></div>
     <div id="myChartPie"></div>
     <div id="myChartTable">
       <el-table
@@ -17,6 +17,7 @@
         <el-table-column prop="address" label="地址"> </el-table-column>
       </el-table>
     </div>
+    <div id="myChartBar"></div>
   </div>
 </template>
 
@@ -69,11 +70,12 @@ export default {
   mounted () {
     this.drawLine()
     this.drawPie()
+    this.drawBar()
   },
   methods: {
     drawLine () {
       // 基于准备好的dom，初始化echarts实例
-      let myChart = this.$echarts.init(document.getElementById('myChart'))
+      let myChart = this.$echarts.init(document.getElementById('myChartLine'))
       myChart.setOption({
         title: {
           text: '每日访问人数',
@@ -153,6 +155,39 @@ export default {
           }
         ]
       })
+    },
+    drawBar () {
+      let myChart = this.$echarts.init(document.getElementById('myChartBar'))
+      myChart.setOption({
+        title: {
+          text: '访问来源',
+          left: 'center'
+        },
+        tooltip: {
+          trigger: 'item'
+        },
+        legend: {
+          top: '10%',
+          left: 'center'
+        },
+        xAxis: {
+          type: 'category',
+          data: ['谷歌搜索', '百度搜索', '360搜索', '搜狗', '必应']
+        },
+        yAxis: {
+          type: 'value'
+        },
+        series: [
+          {
+            data: [1048, 735, 580, 484, 3000],
+            type: 'bar',
+            showBackground: true,
+            backgroundStyle: {
+              color: 'rgba(180, 180, 180, 0.2)'
+            }
+          }
+        ]
+      })
     }
   }
 }
@@ -162,7 +197,7 @@ export default {
 .content {
   height: 100%;
   width: 100%;
-  #myChart {
+  #myChartLine {
     width: 40%;
     height: 40%;
     margin: 20px;
@@ -180,7 +215,7 @@ export default {
     margin: 20px;
     display: inline-block;
   }
-  #myChartMap {
+  #myChartBar {
     width: 40%;
     height: 40%;
     margin: 20px;

@@ -3,7 +3,7 @@
  * @Author: licheng
  * @Date: 2021-07-12 16:05:43
  * @LastEditors: licheng
- * @LastEditTime: 2021-11-26 10:35:19
+ * @LastEditTime: 2021-12-01 16:05:59
  */
 import Vue from 'vue'
 import Router from 'vue-router'
@@ -45,7 +45,7 @@ export default new Router({
         {
           path: 'Cesium',
           name: 'Cesium', // 要跳转的路由名称 不是路径
-          component: () => import('../components/page/Cesium')
+          component: () => import('../components/page/Cesium/index.vue')
         },
         {
           path: 'OpenLayers',

@@ -3,7 +3,7 @@
  * @Author: licheng
  * @Date: 2021-11-08 15:11:02
  * @LastEditors: licheng
- * @LastEditTime: 2021-11-30 14:46:49
+ * @LastEditTime: 2021-12-07 14:04:23
  */
 class Popup {
   constructor (info) {
@@ -41,8 +41,8 @@ class Popup {
       this.viewer.scene,
       geometry
     )
-    this.ctn.style.left = position.x - this.ctn.offsetWidth / 2 + 10 + 'px'
-    this.ctn.style.top = position.y - this.ctn.offsetHeight + 25 + 'px'
+    this.ctn.style.left = position.x - this.ctn.offsetWidth / 2 + 'px'
+    this.ctn.style.top = position.y - this.ctn.offsetHeight - 55 + 'px'
   }
   createHtml (header, content) {
     var html =
