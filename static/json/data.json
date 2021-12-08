@@ -1,0 +1,157 @@
+[
+  {
+    "coordinates": [118.8062, 31.9208],
+    "number": 10041,
+    "cityName": "江苏"
+  },
+  {
+    "coordinates": [127.9688, 45.368],
+    "number": 4093,
+    "cityName": "黑龙江"
+  },
+  {
+    "coordinates": [110.3467, 41.4899],
+    "number": 1157,
+    "cityName": "内蒙古"
+  },
+  {
+    "coordinates": [125.8154, 44.2584],
+    "number": 4903,
+    "cityName": "吉林"
+  },
+  {
+    "coordinates": [116.4551, 40.2539],
+    "number": 2667,
+    "cityName": "北京市"
+  },
+  {
+    "coordinates": [123.1238, 42.1216],
+    "number": 8331,
+    "cityName": "辽宁"
+  },
+  {
+    "coordinates": [114.4995, 38.1006],
+    "number": 23727,
+    "cityName": "河北"
+  },
+  {
+    "coordinates": [117.4219, 39.4189],
+    "number": 681,
+    "cityName": "天津"
+  },
+  {
+    "coordinates": [112.3352, 37.9413],
+    "number": 5352,
+    "cityName": "山西"
+  },
+  {
+    "coordinates": [109.1162, 34.2004],
+    "number": 38,
+    "cityName": "陕西"
+  },
+  {
+    "coordinates": [103.5901, 36.3043],
+    "number": 77,
+    "cityName": "甘肃"
+  },
+  {
+    "coordinates": [106.3586, 38.1775],
+    "number": 65,
+    "cityName": "宁夏"
+  },
+  {
+    "coordinates": [101.4038, 36.8207],
+    "number": 10,
+    "cityName": "青海"
+  },
+  {
+    "coordinates": [87.9236, 43.5883],
+    "number": 22000,
+    "cityName": "新疆"
+  },
+  {
+    "coordinates": [103.9526, 30.7617],
+    "number": 309,
+    "cityName": "四川"
+  },
+  {
+    "coordinates": [103.9526, 30.7617],
+    "number": 309,
+    "cityName": "四川"
+  },
+  {
+    "coordinates": [108.384366, 30.439702],
+    "number": 77,
+    "cityName": "重庆"
+  },
+  {
+    "coordinates": [117.1582, 36.8701],
+    "number": 21666,
+    "cityName": "山东"
+  },
+  {
+    "coordinates": [113.4668, 34.6234],
+    "number": 15717,
+    "cityName": "河南"
+  },
+  {
+    "coordinates": [117.29, 32.0581],
+    "number": 15671,
+    "cityName": "安徽"
+  },
+  {
+    "coordinates": [114.3896, 30.6628],
+    "number": 3714,
+    "cityName": "湖北"
+  },
+  {
+    "coordinates": [119.5313, 29.8773],
+    "number": 3141,
+    "cityName": "浙江"
+  },
+  {
+    "coordinates": [119.4543, 25.9222],
+    "number": 955,
+    "cityName": "福建"
+  },
+  {
+    "coordinates": [116.0046, 28.6633],
+    "number": 4978,
+    "cityName": "江西"
+  },
+  {
+    "coordinates": [113.0823, 28.2568],
+    "number": 778,
+    "cityName": "湖南"
+  },
+  {
+    "coordinates": [106.6992, 26.7682],
+    "number": 33,
+    "cityName": "贵州"
+  },
+  {
+    "coordinates": [102.9199, 25.4663],
+    "number": 149,
+    "cityName": "云南"
+  },
+  {
+    "coordinates": [121.4648, 31.2891],
+    "number": 2155,
+    "cityName": "上海"
+  },
+  {
+    "coordinates": [108.479, 23.1152],
+    "number": 125,
+    "cityName": "广西"
+  },
+  {
+    "coordinates": [110.3893, 19.8516],
+    "number": 7,
+    "cityName": "海南"
+  },
+  {
+    "coordinates": [91.11, 29.97],
+    "number": 20,
+    "cityName": "西藏"
+  }
+]

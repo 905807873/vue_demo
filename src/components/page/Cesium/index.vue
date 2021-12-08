@@ -3,7 +3,7 @@
  * @Author: licheng
  * @Date: 2021-11-26 10:35:03
  * @LastEditors: licheng
- * @LastEditTime: 2021-12-07 14:49:42
+ * @LastEditTime: 2021-12-08 15:26:48
 -->
 <template>
   <div class="content">
@@ -21,6 +21,7 @@
 
 <script>
 import Popup from '../../../utils/popup'
+import Migrate from '../../../utils/migrate'
 export default {
   name: 'home',
   data () {
@@ -30,6 +31,7 @@ export default {
       viewer: null,
       Box: null,
       Cesium: null, // Cesium构造函数
+      migrate: null,
       toolList: [
         {
           title: '车辆轨迹效果',
@@ -42,6 +44,10 @@ export default {
         {
           title: '扩散圆效果',
           id: 'diffusionCircle'
+        },
+        {
+          title: '迁徙图曲线效果',
+          id: 'migrate'
         },
         {
           title: '清除效果',
@@ -75,10 +81,10 @@ export default {
       )
       handler.setInputAction(function (movement) {
         var pick = _this.viewer.scene.pick(movement.position)
-        var point = new _this.Cesium.Cartesian2(
-          movement.position.x,
-          movement.position.y
-        )
+        // var point = new _this.Cesium.Cartesian2(
+        //   movement.position.x,
+        //   movement.position.y
+        // )
         if (_this.Cesium.defined(pick) && pick.id.id === 'point') {
           let properties = {}
           let name = pick.id.name
@@ -181,7 +187,6 @@ export default {
     /**
      * 绘制扩散圆, 带呼吸灯效果
      * @param viewer
-     * @param positions
      */
     drawEllipse (viewer) {
       let r1 = 100
@@ -212,6 +217,36 @@ export default {
       })
       viewer.zoomTo(ellipse) // 相机到entity的位置
     },
+    /**
+     * 迁徙效果(曲线)
+     * @param viewer
+     */
+    async birdMigrate (viewer) {
+      // 定位视角
+      this.viewer.camera.flyTo({
+        destination: this.Cesium.Cartesian3.fromDegrees(
+          113.277178,
+          23.137995,
+          20000.0
+        )
+      })
+      let dataList
+      await this.$axios('./static/json/data.json').then(res => {
+        dataList = res.data
+      })
+      // 处理数据
+      let data = []
+      for (let i = 0; i < dataList.length; i++) {
+        let start = [113.277178, 23.137995]
+        let end = dataList[i].coordinates
+        let dataItem = {}
+        dataItem.from = { lng: start[0], lat: start[1] }
+        dataItem.count = dataList[i].number
+        dataItem.to = { lng: end[0], lat: end[1] }
+        data.push(dataItem)
+      }
+      this.migrate = new Migrate(this.viewer, data)
+    },
     change (id) {
       this.clear()
       switch (id) {
@@ -227,6 +262,9 @@ export default {
         case 'clear':
           this.clear()
           break
+        case 'migrate':
+          this.birdMigrate()
+          break
 
         default:
           break
@@ -236,6 +274,9 @@ export default {
       this.viewer.dataSources.removeAll()
       this.viewer.entities.removeById('diffusionCircle')
       this.viewer.entities.removeById('dynamicWall')
+      if (this.migrate) {
+        this.migrate.isShowOrHidden('hide')
+      }
     }
   },
   mounted () {
