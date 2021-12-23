@@ -3,11 +3,14 @@
  * @Author: licheng
  * @Date: 2021-11-26 10:35:03
  * @LastEditors: licheng
- * @LastEditTime: 2021-12-08 15:26:48
+ * @LastEditTime: 2021-12-23 15:49:34
 -->
 <template>
   <div class="content">
-    <div id="cesiumContainer"></div>
+    <div class="container-integrate" style="">
+      <!--cesium容器-->
+      <div id="cesiumContainer" style="height: 800px;width: 100%;"></div>
+    </div>
     <div class="toolBox">
       <el-button
         @click="change(item.id)"
@@ -22,6 +25,7 @@
 <script>
 import Popup from '../../../utils/popup'
 import Migrate from '../../../utils/migrate'
+import addThree from './js/addthree.js'
 export default {
   name: 'home',
   data () {
@@ -48,6 +52,10 @@ export default {
         {
           title: '迁徙图曲线效果',
           id: 'migrate'
+        },
+        {
+          title: '叠加THREE模型',
+          id: 'three'
         },
         {
           title: '清除效果',
@@ -107,6 +115,9 @@ export default {
           })
         }
       }, this.Cesium.ScreenSpaceEventType.LEFT_CLICK)
+    },
+    initThrees () {
+      addThree.initThree(this.viewer)
     },
     // 绘制轨迹
     trajectory () {
@@ -265,7 +276,9 @@ export default {
         case 'migrate':
           this.birdMigrate()
           break
-
+        case 'three':
+          this.initThrees()
+          break
         default:
           break
       }
@@ -277,6 +290,7 @@ export default {
       if (this.migrate) {
         this.migrate.isShowOrHidden('hide')
       }
+      addThree.clear()
     }
   },
   mounted () {
@@ -335,13 +349,24 @@ export default {
 @import "../../../style/popup.css";
 .content {
   position: relative;
-  #cesiumContainer {
-    height: 100%;
+  .container-integrate {
+    #cesiumContainer {
+      height: 100%;
+    }
   }
   .toolBox {
     position: absolute;
     top: 50px;
     left: 50px;
+  }
+  /*设置cesium和three的画布位置*/
+  .container-integrate canvas {
+    position: absolute;
+    top: 0;
+  }
+  /*three画布禁止鼠标操作*/
+  .container-integrate canvas:nth-child(3) {
+    pointer-events: none;
   }
 }
 </style>
