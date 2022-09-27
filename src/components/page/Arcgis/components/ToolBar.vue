@@ -3,7 +3,7 @@
  * @Author: licheng
  * @Date: 2021-07-12 16:05:43
  * @LastEditors: licheng
- * @LastEditTime: 2021-11-30 17:03:19
+ * @LastEditTime: 2022-09-20 15:30:03
 -->
 <template>
   <div
@@ -26,50 +26,98 @@
 </template>
 
 <script>
-import utils from '@/utils'
+import utils from "@/utils";
+import drawPoint from "@/utils/esri/Draw/drawPoint.js";
+import drawLine from "@/utils/esri/Draw/drawLine.js";
+import drawPoly from "@/utils/esri/Draw/drawPoly.js";
+
 export default {
-  name: 'ToolBar',
-  data () {
+  name: "ToolBar",
+  data() {
     return {
       openTable: false,
       activeIndex: null, // 当前选中工具
       barList: [
         {
-          title: '属性查询',
-          id: 'Identify',
-          icon: 'el-icon-warning-outline'
+          title: "属性查询",
+          id: "Identify",
+          icon: "el-icon-warning-outline"
+        },
+        {
+          title: "地形开挖",
+          id: "Slice",
+          icon: "el-icon-ice-cream-square"
+        },
+        {
+          title: "视域分析",
+          id: "Viewable",
+          icon: "el-icon-ice-cream-square"
+        },
+        {
+          title: "地图绘制",
+          id: "draw",
+          icon: "el-icon-edit"
+        },
+        {
+          title: "折线平滑",
+          id: "bezierSpline",
+          icon: "el-icon-magic-stick"
+        },
+        {
+          title: "清除",
+          id: "clear",
+          icon: "el-icon-circle-close"
         }
       ]
-    }
+    };
   },
   computed: {
-    view () {
-      return this.$store.state.view
+    view() {
+      return this.$store.state.view;
     }
   },
   methods: {
-    handleClick (item) {
-      let _this = this
+    handleClick(item) {
+      let _this = this;
       if (this.activeIndex === item.id) {
-        this.activeIndex = null
-        utils.removeEventListener()
+        this.activeIndex = null;
+        utils.removeEventListener();
       } else {
-        this.activeIndex = item.id
+        this.activeIndex = item.id;
         switch (item.id) {
-          case 'Identify':
-            utils.Identify(function (results) {
-              _this.$emit('attribute', results)
-            })
-            break
+          case "Identify":
+            utils.Identify(function(results) {
+              _this.$emit("attribute", results);
+            });
+            break;
+          case "draw":
+            drawLine.Draw();
+            break;
+          case "bezierSpline":
+            // 使用贝塞尔曲线算法，平滑折线
+            drawLine.bezierSpline();
+            break;
+          case "Slice":
+            drawPoly.Draw();
+            break;
+          case "Viewable":
+            drawPoint.Draw();
+            break;
+          case "clear":
+            this.view.graphics.removeAll();
+            drawPoly.clear();
+            this.view.map.findLayerById("mergeGraphicsLayer").removeAll();
+            this.view.map.findLayerById("heightLayer").removeAll();
+            break;
           default:
-            break
+            break;
         }
       }
     }
   },
-  mounted () {},
-  created () {}
-}
+  mounted() {},
+  created() {}
+};
 </script>
 
 <style lang="less" scoped>
@@ -85,6 +133,10 @@ export default {
   text-align: center;
   .show {
     width: 80px;
+    span {
+      width: 50px;
+      display: inline-block;
+    }
   }
   .hide {
     width: 30px;

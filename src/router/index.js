@@ -3,7 +3,7 @@
  * @Author: licheng
  * @Date: 2021-07-12 16:05:43
  * @LastEditors: licheng
- * @LastEditTime: 2021-12-01 16:05:59
+ * @LastEditTime: 2022-08-31 10:03:28
  */
 import Vue from 'vue'
 import Router from 'vue-router'
@@ -40,7 +40,7 @@ export default new Router({
         {
           path: 'Arcgis',
           name: 'Arcgis', // 要跳转的路由名称 不是路径
-          component: () => import('../components/page/Arcgis/index.vue')
+          component: () => import('../components/page/Arcgis/arcgis.vue')
         },
         {
           path: 'Cesium',
@@ -50,7 +50,12 @@ export default new Router({
         {
           path: 'OpenLayers',
           name: 'OpenLayers', // 要跳转的路由名称 不是路径
-          component: () => import('../components/page/OpenLayers')
+          component: () => import('../components/page/OpenLayers/index.vue')
+        },
+        {
+          path: 'Maptalks',
+          name: 'Maptalks', // 要跳转的路由名称 不是路径
+          component: () => import('../components/page/Maptalks')
         },
         {
           path: 'setting',

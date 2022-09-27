@@ -3,7 +3,7 @@
  * @Author: licheng
  * @Date: 2021-11-19 18:02:57
  * @LastEditors: licheng
- * @LastEditTime: 2021-11-30 15:29:46
+ * @LastEditTime: 2022-02-16 17:07:21
  */
 import store from '@/store'
 import modules from './esri/modules'
@@ -17,7 +17,8 @@ const utils = {
     // eslint-disable-next-line no-unused-vars
     event = view.on('click', e => {
       modules.Identify(
-        'http://192.168.3.180:6080/arcgis/rest/services/GZXZQH/MapServer',
+        // layers[0].url,
+        layers[0].url.slice(0, 54) + 'MapServer',
         {
           tolerance: 3,
           geometry: e.mapPoint

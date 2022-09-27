@@ -1,3 +1,10 @@
+/*
+ * @Descripttion: project
+ * @Author: licheng
+ * @Date: 2021-07-12 16:05:43
+ * @LastEditors: licheng
+ * @LastEditTime: 2022-08-25 15:14:11
+ */
 'use strict'
 // Template version: 1.3.1
 // see http://vuejs-templates.github.io/webpack for documentation.
@@ -23,7 +30,7 @@ module.exports = {
     // Use Eslint Loader?
     // If true, your code will be linted during bundling and
     // linting errors and warnings will be shown in the console.
-    useEslint: true,
+    useEslint: false,
     // If true, eslint errors and warnings will also be shown in the error overlay
     // in the browser.
     showEslintErrorsInOverlay: false,

@@ -3,7 +3,7 @@
  * @Author: licheng
  * @Date: 2021-12-22 17:41:13
  * @LastEditors: licheng
- * @LastEditTime: 2021-12-23 16:05:25
+ * @LastEditTime: 2022-01-05 10:20:29
  */
 var _this = this
 var three = {
@@ -31,6 +31,9 @@ export default {
     three.scene.add(Amlight)
     // 注意这里，直接把three容器（canvas 添加到 cesium中，在cesium的canvas之下），
     // 这样的话，两个canvas才会重叠起来。
+    if (this.viewer.cesiumWidget.canvas.parentElement.getElementsByTagName('canvas').length >1) {
+      this.viewer.cesiumWidget.canvas.parentElement.getElementsByTagName('canvas')[1].remove()
+    }
     this.viewer.cesiumWidget.canvas.parentElement.appendChild(
       three.renderer.domElement
     )
